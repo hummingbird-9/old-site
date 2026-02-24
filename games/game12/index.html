@@ -1,273 +1,590 @@
-<html manifest="offline.appcache">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-  </head>
-  <body>
-    ﻿
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="robots" content="index,follow" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>
-      Snowball World
+      Snowball World Game - Play for free on HTML5Games.com
     </title>
-    <!-- Standardised web app manifest -->
-    <link rel="manifest" href="../appmanifest.json" />
-    <!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <link href="/assets/0.2-ecf77b68/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link rel="alternate" hreflang="de" href="http://de.html5games.com/Spiel/Snowball-World/09524965-63be-4726-9270-b42c77e7ea5f" />
+    <link rel="alternate" hreflang="tr" href="http://tr.html5games.com/Oyna/Snowball-World/09524965-63be-4726-9270-b42c77e7ea5f" />
+    <meta name="description" content="Play the best HTML5 games for free. HTML5games.com offers worlds first affiliate program for publishers." />
+    <meta name="keywords" content="html5,html5 games,online,free,canvas,affiliate,play" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Snowball World" />
+    <meta property="og:description" content="In this cute side-scroller skill game your aim is to help the kitten Snowball through 20 challenging levels. Jump over obstacles, catch mice and birds and collect keys to complete all levels!" />
+    <meta property="og:url" content="http://html5games.com/Game/Snowball-World/09524965-63be-4726-9270-b42c77e7ea5f" />
+    <meta property="og:site_name" content="HTML5games.com" />
+    <meta property="og:image" content="https://img.cdn.famobi.com/portal/html5games/images/html5games_logo.png?v=0.2-ecf77b68" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
-    <meta name="HandheldFriendly" content="true" />
-    <!-- Chrome for Android web app tags -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
-    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
-    <style type="text/css">
-      * {
-			padding: 0;
-			margin: 0;
-		}
-		html, body {
-			background: #000;
-			color: #fff;
-			overflow: hidden;
-			touch-action: none;
-			-ms-touch-action: none;
-		}
-		canvas {
-			touch-action-delay: none;
-			touch-action: none;
-			-ms-touch-action: none;
-		}
-        .splash {
-            color: #222;
-            -webkit-text-size-adjust: none;
-            background: url(https://az808818.vo.msecnd.net/baseimages/agingo_g_bg.jpg) center top no-repeat #76d4f8;
-            background-size: cover;
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            opacity: 1;
-            overflow: hidden !important;
-            z-index: 2147483647;
-            -moz-transition: opacity 0.3s ease-in-out;
-            -ms-transition: opacity 0.3s ease-in-out;
-            -o-transition: opacity 0.3s ease-in-out;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-
-
-        .logo {
-            width: 100%;
-            position: absolute;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-            text-align: center;
-        }
-
-            .logo span {
-                width: 100%;
-                display: block;
-                margin-top: 20px;
-                color: #01773e;
-                font-size: 28px;
-                -webkit-animation: fadein 3s; /* Safari, Chrome and Opera &gt; 12.1 */
-                -moz-animation: fadein 3s; /* Firefox &lt; 16 */
-                -ms-animation: fadein 3s; /* Internet Explorer */
-                -o-animation: fadein 3s; /* Opera &lt; 12.1 */
-                animation: fadein 3s;
-            }
-
-            .logo img {
-                max-width: 500px;
-                width: 90%;
-                display: inline-block;
-            }
-
-            .logo img {
-                -webkit-animation: fadein 3s; /* Safari, Chrome and Opera &gt; 12.1 */
-                -moz-animation: fadein 3s; /* Firefox &lt; 16 */
-                -ms-animation: fadein 3s; /* Internet Explorer */
-                -o-animation: fadein 3s; /* Opera &lt; 12.1 */
-                animation: fadein 3s;
-            }
-
-        @keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-        /* Firefox &lt; 16 */
-        @-moz-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-        /* Safari, Chrome and Opera &gt; 12.1 */
-        @-webkit-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-        /* Internet Explorer */
-        @-ms-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-        /* Opera &lt; 12.1 */
-        @-o-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-
-        .logoCanvas {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            max-height: 5%;
-            display: none;
-        }
-    </style>
-    <div id="fb-root">
-    </div>
-    <script>
-      // Issue a warning if trying to preview an exported project on disk.
-	(function(){
-		// Check for running exported on file protocol
-		if (window.location.protocol.substr(0, 4) === &#34;file&#34;)
-		{
-			alert(&#34;Exported games won&#39;t work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)&#34;);
-		}
-	})();
+    <!-- 
+	<script>
+		window.famobi_dataLayer = window.famobi_dataLayer || [];
+		window.famobi_dataLayer.push({'affiliateId': 'A1000-1', 'section': 'portals'});
+	</script>
+	-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QNMSGF9720&amp;l=famobi_dataLayer">
     </script>
-    <!-- The canvas must be inside a div called c2canvasdiv -->
-    <div id="c2canvasdiv">
-      <!-- The canvas the project will render to.  If you change its ID, don't forget to change the
-        ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
-      <canvas id="c2canvas" width="1280" height="720">
-        <!-- This text is displayed if the visitor's browser does not support HTML5.
-            You can change it, but it is a good idea to link to a description of a browser
-            and provide some links to download some popular HTML5-compatible browsers. -->
-        <h1>
-          Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.
-          <a href="http://www.whatbrowser.org">          What is a browser?
+    <script>
+      window.famobi_dataLayer = window.famobi_dataLayer || [];
+		function gtag(){famobi_dataLayer.push(arguments);}
+		gtag(&#39;js&#39;, new Date());
+		gtag(&#39;config&#39;, &#39;G-QNMSGF9720&#39;);
+    </script>
+  </head>
+  <body>
+    <div class="app-container">
+      <div id="app">
+        <header class="main">
+          <div class="main-section">
+            <div class="menuHolder">
+              <input type="checkbox" id="navigationTrigger" />
+              <label for="navigationTrigger" class="openIcon">
+                <svg x="0px" y="0px" viewBox="0 0 100 100">
+                  <g transform="translate(0,-952.36218)">
+                    <path d="m 14.000002,968.36217 c -3.3137,0 -6,2.68619 -6,6 0,3.31359 2.6863,6 6,6 l 71.999996,0 c 3.3137,0 6,-2.68641 6,-6 0,-3.31381 -2.6863,-6 -6,-6 z m 0,28.00003 c -3.3137,0 -6,2.6862 -6,6 0,3.3136 2.6863,6 6,6 l 71.999996,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.3138 -2.6863,-6 -6,-6 z m 0,28 c -3.3137,0 -6,2.6862 -6,6 0,3.3136 2.6863,6 6,6 l 71.999996,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.3138 -2.6863,-6 -6,-6 z">
+                    </path>
+                  </g>
+                </svg>
+              </label>
+              <nav class="main">
+                <ul>
+                  <li>
+                    <a href="/">                    <i class="icon-home"></i>
+                    Home
 </a>
-          <br />
-          <br />
-          <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">          Microsoft Internet Explorer
+                  </li>
+                  <li>
+                    <a href="/All-Games">                    <i class="icon-category-new"></i>
+                    New
 </a>
-          <br />
-          <a href="http://www.mozilla.com/firefox/">          Mozilla Firefox
+                  </li>
+                  <li>
+                    <a href="/Best/702b9531-c136-437a-ab97-0b209d893b55">                    <i class="icon-category-best"></i>
+                    Best
 </a>
-          <br />
-          <a href="http://www.google.com/chrome/">          Google Chrome
+                  </li>
+                  <li>
+                    <a href="/Match-3/a0732787-677c-4ff9-9ef5-73a21ff26f64">                    <i class="icon-category-match3"></i>
+                    Match 3
 </a>
-          <br />
-          <a href="http://www.apple.com/safari/download/">          Apple Safari
+                  </li>
+                  <li>
+                    <a href="/Bubble-Shooter/09a8f220-955e-4114-a189-175faa5f1374">                    <i class="icon-category-bubble_shooter"></i>
+                    Bubble Shooter
 </a>
-        </h1>
-      </canvas>
-      <img src="https://az808818.vo.msecnd.net/baseimages/agingo_logo_g_200x68.png" alt="agingo" class="logoCanvas" />
-    </div>
-    <div class="splash">
-      <div class="logo">
-        <img src="https://az808818.vo.msecnd.net/baseimages/agingo_logo_g.png" alt="agingo" style="" />
-        <span>        agingo.com
-</span>
+                  </li>
+                  <li>
+                    <a href="/Puzzle/af2ebd26-0786-423b-90da-ffb229840819">                    <i class="icon-category-puzzle"></i>
+                    Puzzle
+</a>
+                  </li>
+                  <li>
+                    <a href="/Quiz/8e0b96cd-0fed-4354-a43d-ae4785a798fd">                    <i class="icon-category-quiz"></i>
+                    Quiz
+</a>
+                  </li>
+                  <li>
+                    <a href="/Cards/b32b5c79-362e-42a2-8a72-96f0ffe24bbb">                    <i class="icon-category-cards"></i>
+                    Cards
+</a>
+                  </li>
+                  <li>
+                    <a href="/Girls/018103c4-e4a9-4b0e-86c1-5cc6782053ca">                    <i class="icon-category-girls"></i>
+                    Girls
+</a>
+                  </li>
+                  <li>
+                    <a href="/Jump-Run/8a2ce06d-c47f-4eec-8c0b-8d52e48072bb">                    <i class="icon-category-jumpnrun"></i>
+                    Jump &amp; Run
+</a>
+                  </li>
+                  <li>
+                    <a href="/Arcade/ecfe76c8-13f9-49c1-b81a-084011512dba">                    <i class="icon-category-spaceshooter"></i>
+                    Arcade
+</a>
+                  </li>
+                  <li>
+                    <a href="/Racing/b53dc097-05cd-457f-a811-e0c6c47ca37a">                    <i class="icon-category-racing"></i>
+                    Racing
+</a>
+                  </li>
+                  <li>
+                    <a href="/Sport/92ab9ee5-0dc8-45b4-bf5a-517fc3de0caf">                    <i class="icon-category-sport"></i>
+                    Sport
+</a>
+                  </li>
+                  <li>
+                    <a href="/Multiplayer/4b2f5813-483b-4fa1-adf6-e6b542bc1b57">                    <i class="icon-category-multiplayer"></i>
+                    Multiplayer
+</a>
+                  </li>
+                  <li>
+                    <a href="/All-Games">                    <i class="icon-list"></i>
+                    All Games
+</a>
+                  </li>
+                </ul>
+                <ul class="tile-list">
+                  <li>
+                    <a class="tile-neutral teaser" href="/Static/About">                    <img src="https://img.cdn.famobi.com/portal/html5games/images/html5games_teaser_about.png?v=0.2-ecf77b68" alt="" />
+                    <header>
+                      About
+                    </header>
+                    <p>
+                      What is HTML5 games?
+                    </p>
+</a>
+                  </li>
+                  <li>
+                    <a class="tile-neutral teaser" href="https://famobi.com/publishers" target="_blank">                    <img src="https://img.cdn.famobi.com/portal/html5games/images/html5games_teaser_publishers.png?v=0.2-ecf77b68" alt="" />
+                    <header>
+                      Publishers
+                    </header>
+                    <p>
+                      Buy and license HTML5 games
+                    </p>
+</a>
+                  </li>
+                  <li>
+                    <a class="tile-neutral teaser" href="https://famobi.com/developers" target="_blank">                    <img src="https://img.cdn.famobi.com/portal/html5games/images/html5games_teaser_developers.png?v=0.2-ecf77b68" alt="" />
+                    <header>
+                      Developers
+                    </header>
+                    <p>
+                      Submit your HTML5 game
+                    </p>
+</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="language-select">
+              <div class="value">
+                EN
+              </div>
+              <select data-language-switch="">
+                <option value="de">
+                  DE
+                </option>
+                <option value="tr">
+                  TR
+                </option>
+                <option value="en" selected="">
+                  EN
+                </option>
+              </select>
+            </div>
+            <a href="/" class="logo">            <svg viewBox="0 0 499 308" version="1.1">
+              <defs>
+                <linearGradient x1="69.0355348%" y1="61.8930102%" x2="50%" y2="100%" id="linearGradient-1">
+                  <stop stop-color="#F48343" offset="0%">
+                  </stop>
+                  <stop stop-color="#EC6530" offset="50%">
+                  </stop>
+                  <stop stop-color="#E54C20" offset="100%">
+                  </stop>
+                </linearGradient>
+              </defs>
+              <g>
+                <polygon fill="url(#linearGradient-1)" fill-rule="nonzero" points="23.7351273 246.782124 248.231018 308.027344 475.988256 244.048787 498.36909 0 -3.45813024e-15 0">
+                </polygon>
+                <g transform="translate(86.000000, 170.000000)" fill="#FFFFFF">
+                  <polygon fill-rule="nonzero" points="199.232986 0 198.021163 15.3819415 139.745105 15.3819415 141.080079 31.504352 196.228503 31.504352 192.413387 78.5579105 161.181488 88.2914436 129.600451 78.5579105 127.261233 54.608144 142.785137 54.608144 144.094719 67.2025509 161.181488 71.9438687 177.929911 67.2025509 179.875557 47.2246834 127.261233 47.2246834 121.957523 0">
+                  </polygon>
+                  <path d="M23.3428188,54.9205171 L15.9468898,54.9205171 L15.9468898,43.6982931 L7.39592901,43.6982931 L7.39592901,54.9205171 L0,54.9205171 L0,27.3921757 L7.39592901,27.3921757 L7.39592901,37.597621 L15.9468898,37.597621 L15.9468898,27.3921757 L23.3428188,27.3921757 L23.3428188,54.9205171 Z M41.2458107,54.9205171 L33.8871407,54.9205171 L33.8871407,33.4740185 L27.2363935,33.4740185 L27.2363935,27.3921757 L47.8779284,27.3921757 L47.8779284,33.4740185 L41.2458107,33.4740185 L41.2458107,54.9205171 Z M63.6385227,54.9205171 L58.068289,35.0933327 L57.9006231,35.0933327 C58.161438,38.4700591 58.2918435,41.0935729 58.2918435,42.9639529 L58.2918435,54.9205171 L51.7715031,54.9205171 L51.7715031,27.3921757 L61.5706433,27.3921757 L67.2526542,46.9369215 L67.4016906,46.9369215 L72.9719243,27.3921757 L82.789694,27.3921757 L82.789694,54.9205171 L76.0271695,54.9205171 L76.0271695,42.8509775 C76.0271695,42.2233332 76.0364842,41.5266585 76.0551138,40.7609324 C76.0737435,39.9952064 76.1575756,38.1185781 76.3066127,35.1309912 L76.1389468,35.1309912 L70.6432313,54.9205171 L63.6385227,54.9205171 Z M88.6580004,54.9205171 L88.6580004,27.3921757 L96.0166703,27.3921757 L96.0166703,48.9139911 L106.505104,48.9139911 L106.505104,54.9205171 L88.6580004,54.9205171 Z" id="HTML">
+                  </path>
+                  <path d="M223.334578,39.1981059 L235.08982,39.1981059 L235.08982,54.035543 C231.897942,55.140197 228.389413,55.6925157 224.564128,55.6925157 C220.366249,55.6925157 217.121636,54.4623513 214.830191,52.0019857 C212.538746,49.54162 211.39304,46.033141 211.39304,41.4764434 C211.39304,37.0327217 212.647417,33.5744535 215.156208,31.1015349 C217.664999,28.6286164 221.179738,27.3921757 225.70053,27.3921757 C227.414457,27.3921757 229.032106,27.5553607 230.553526,27.8817358 C232.074947,28.2081108 233.400736,28.6223498 234.530934,29.1244653 L232.202241,34.9615281 C230.239919,33.982403 228.085123,33.4928478 225.737789,33.4928478 C223.589171,33.4928478 221.928053,34.198937 220.754386,35.6111367 C219.580719,37.0233364 218.993894,39.0411825 218.993894,41.6647357 C218.993894,44.2380773 219.524831,46.1994364 220.58672,47.5488716 C221.648609,48.8983069 223.179322,49.5730144 225.178903,49.5730144 C226.271841,49.5730144 227.277827,49.4663164 228.196889,49.2529174 L228.196889,44.9410226 L223.334578,44.9410226 L223.334578,39.1981059 Z M257.352125,55.315931 L256.010798,50.1567206 L247.161765,50.1567206 L245.783178,55.315931 L237.697956,55.315931 L246.584249,27.6746142 L256.402019,27.6746142 L265.400088,55.315931 L257.352125,55.315931 Z M254.483176,44.0560485 L253.309514,39.5370322 C253.03628,38.5328013 252.704056,37.2335971 252.312834,35.6393805 C251.921611,34.045164 251.663905,32.9028685 251.539708,32.2124598 C251.42793,32.852657 251.207482,33.9070836 250.878359,35.3757712 C250.549235,36.8444589 249.819585,39.7378557 248.689387,44.0560485 L254.483176,44.0560485 Z M280.210576,55.315931 L274.640342,35.4887467 L274.472676,35.4887467 C274.733491,38.865473 274.863897,41.4889868 274.863897,43.3593668 L274.863897,55.315931 L268.343556,55.315931 L268.343556,27.7875896 L278.142697,27.7875896 L283.824708,47.3323354 L283.973744,47.3323354 L289.543978,27.7875896 L299.361747,27.7875896 L299.361747,55.315931 L292.599223,55.315931 L292.599223,43.2463914 C292.599223,42.6187471 292.608537,41.9220724 292.627167,41.1563464 C292.645797,40.3906203 292.729629,38.513992 292.878666,35.5264051 L292.711,35.5264051 L287.215285,55.315931 L280.210576,55.315931 Z M321.400498,55.315931 L305.230054,55.315931 L305.230054,27.7875896 L321.400498,27.7875896 L321.400498,33.756457 L312.588724,33.756457 L312.588724,38.0871811 L320.748464,38.0871811 L320.748464,44.0560485 L312.588724,44.0560485 L312.588724,49.2529174 L321.400498,49.2529174 L321.400498,55.315931 Z M343.979505,46.9557507 C343.979505,48.6629432 343.55103,50.1786815 342.694067,51.5030109 C341.837104,52.8273404 340.601356,53.8566616 338.986788,54.5910055 C337.372219,55.3253493 335.478234,55.6925157 333.304777,55.6925157 C331.491492,55.6925157 329.970094,55.5638506 328.740538,55.3065164 C327.510982,55.0491822 326.231766,54.6004233 324.902852,53.9602261 L324.902852,47.3323354 C326.306285,48.0604028 327.765585,48.6284124 329.280795,49.0363812 C330.796006,49.44435 332.186998,49.6483313 333.453813,49.6483313 C334.546752,49.6483313 335.347814,49.4569027 335.857024,49.0740396 C336.366234,48.6911766 336.620835,48.1984832 336.620835,47.5959447 C336.620835,47.2193581 336.518374,46.8898498 336.313448,46.6074099 C336.108522,46.3249699 335.779403,46.0393961 335.326082,45.7506797 C334.872761,45.4619633 333.664958,44.8719865 331.702636,43.9807316 C329.92661,43.164794 328.594611,42.373974 327.706599,41.608248 C326.818586,40.842522 326.160349,39.9638331 325.731867,38.9721551 C325.303385,37.9804771 325.089148,36.8067999 325.089148,35.4510882 C325.089148,32.9154052 326.001986,30.9383553 327.827691,29.5198792 C329.653395,28.1014031 332.162149,27.3921757 335.354027,27.3921757 C338.173312,27.3921757 341.048442,28.0511923 343.979505,29.3692453 L341.725331,35.112162 C339.17928,33.9321907 336.981016,33.3422139 335.130472,33.3422139 C334.174151,33.3422139 333.478655,33.5116753 333.043963,33.8506032 C332.609271,34.1895311 332.391929,34.6100465 332.391929,35.112162 C332.391929,35.6519361 332.668264,36.1352149 333.220944,36.562013 C333.773623,36.9888112 335.273286,37.7670784 337.719979,38.8968382 C340.067313,39.9638335 341.697382,41.1092672 342.610234,42.3331735 C343.523086,43.5570799 343.979505,45.0979236 343.979505,46.9557507 Z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+</a>
+          </div>
+        </header>
+        <div class="content">
+          <div class="game" itemscope="" itemtype="http://schema.org/CreativeWork">
+            <header>
+              <div class="background" style="background-image: url(https://img.cdn.famobi.com/portal/html5games/images/tmp/blurred/SnowballWorldTeaser.jpg?v=0.2-ecf77b68);">
+                <div class="backgroundDarken">
+                  <div class="main-section">
+                    <a href="https://play.famobi.com/snowball-world/A1000-10" target="_blank" class="icon">                    <img src="https://img.cdn.famobi.com/portal/html5games/images/tmp/SnowballWorldTeaser.jpg?v=0.2-ecf77b68" itemprop="image" />
+</a>
+                    <h1 itemprop="name">
+                      Snowball World
+                    </h1>
+                    <div class="play-btn-container">
+                      <a href="//play.famobi.com/wrapper/snowball-world/A1000-10" class="btn-highlight play-btn">                      Play
+</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div id="div-gpt-ad-content" style="text-align:center">
+            </div>
+            <div class="main-section">
+              <div class="game-infos">
+                <div class="game-description">
+                  <p itemprop="description">
+                    In this cute side-scroller skill game your aim is to help the kitten Snowball through 20 challenging levels. Jump over obstacles, catch mice and birds and collect keys to complete all levels!
+                  </p>
+                </div>
+              </div>
+              <div class="tile-primary">
+                <h2>
+                  Place the game link on your website!
+                </h2>
+                <div class="textarea-autogrow">
+                  <div class="shadow">
+                    https://play.famobi.com/snowball-world
+                  </div>
+                  <textarea class="aff-iliate-link" readonly="" onclick="this.focus(); this.select()">
+                    https://play.famobi.com/snowball-world
+                  </textarea>
+                </div>
+              </div>
+              <div class="tile-neutral">
+                <h2>
+                  Become a partner of Famobi!
+                </h2>
+                <p>
+                  You have a significant amount of traffic? Offer cross-platform games with the affiliate program of Famobi.com
+                </p>
+                <p>
+                  <a href="https://famobi.com/publishers/" target="_blank" class="btn-primary more-info-btn">                  More Info
+</a>
+                </p>
+              </div>
+              <div class="tile-neutral">
+                <h2>
+                  For Companies
+                </h2>
+                <p>
+                  Do you want to buy, license or re-brand one of our games for your company?
+                </p>
+                <p>
+                  <a href="https://famobi.com/license-html5-games/" target="_blank" class="btn-primary more-info-btn">                  More Info
+</a>
+                </p>
+              </div>
+              <div class="game-categories">
+                <h2>
+                  Categories
+                </h2>
+                <ul>
+                  <li>
+                    <a href="/Puzzle/af2ebd26-0786-423b-90da-ffb229840819">                    <i class="icon-category-puzzle"></i>
+                    Puzzle
+</a>
+                  </li>
+                  <li>
+                    <a href="/Jump-Run/8a2ce06d-c47f-4eec-8c0b-8d52e48072bb">                    <i class="icon-category-jumpnrun"></i>
+                    Jump &amp; Run
+</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="game-languages">
+                <h2>
+                  Languages
+                </h2>
+                <ul>
+                  <li>
+                    <a href="https://play.famobi.com/snowball-world/A1000-10" target="_blank">                    <img src="https://img.cdn.famobi.com/portal/html5games/images/flags/flag_de.png?v=0.2-ecf77b68" alt="de" />
+                    de
+</a>
+                  </li>
+                  <li>
+                    <a href="https://play.famobi.com/snowball-world/A1000-10" target="_blank">                    <img src="https://img.cdn.famobi.com/portal/html5games/images/flags/flag_tr.png?v=0.2-ecf77b68" alt="tr" />
+                    tr
+</a>
+                  </li>
+                  <li>
+                    <a href="https://play.famobi.com/snowball-world/A1000-10" target="_blank">                    <img src="https://img.cdn.famobi.com/portal/html5games/images/flags/flag_en.png?v=0.2-ecf77b68" alt="en" />
+                    en
+</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="tile-neutral withSpacing">
+                <h2>
+                  Game Icons
+                </h2>
+                <ul class="icon-downloads">
+                  <li>
+                    <figure style="width: 180px">
+                      <a href="http://download.famobi.com/portal/html5games/images/tmp/180/SnowballWorldTeaser.jpg?v=0.2-ecf77b68">                      <img src="https://img.cdn.famobi.com/portal/html5games/images/tmp/180/SnowballWorldTeaser.jpg?v=0.2-ecf77b68" />
+</a>
+                      <figcaption>
+                        180x180
+                      </figcaption>
+                    </figure>
+                  </li>
+                  <li>
+                    <figure style="width: 120px">
+                      <a href="http://download.famobi.com/portal/html5games/images/tmp/120/SnowballWorldTeaser.jpg?v=0.2-ecf77b68">                      <img src="https://img.cdn.famobi.com/portal/html5games/images/tmp/120/SnowballWorldTeaser.jpg?v=0.2-ecf77b68" />
+</a>
+                      <figcaption>
+                        120x120
+                      </figcaption>
+                    </figure>
+                  </li>
+                  <li>
+                    <figure style="width: 60px">
+                      <a href="http://download.famobi.com/portal/html5games/images/tmp/60/SnowballWorldTeaser.jpg?v=0.2-ecf77b68">                      <img src="https://img.cdn.famobi.com/portal/html5games/images/tmp/60/SnowballWorldTeaser.jpg?v=0.2-ecf77b68" />
+</a>
+                      <figcaption>
+                        60x60
+                      </figcaption>
+                    </figure>
+                  </li>
+                </ul>
+              </div>
+              <div class="similarGames">
+                <h2>
+                  Similar Games
+                </h2>
+                <ul class="games games-special">
+                  <li>
+                    <a href="/Game/Tiled-Quest/524cc5c5-8e4d-4fc4-9899-95920bf930cc">                    <div class="icon">
+                      <div class="clamp">
+                      </div>
+                      <img src="https://img.cdn.famobi.com/portal/html5games/images/tmp/TiledQuestTeaser.jpg?v=0.2-ecf77b68" alt="Tiled Quest" />
+                    </div>
+                    <div class="name-container">
+                      <div class="name">
+                        Tiled Quest
+                      </div>
+                    </div>
+</a>
+                  </li>
+                  <li>
+                    <a href="/Game/Butterfly-Shimai/59b916ca-a9a6-440f-b2ce-4469d9be957c">                    <div class="icon">
+                      <div class="clamp">
+                      </div>
+                      <img src="https://img.cdn.famobi.com/portal/html5games/images/tmp/ButterflyShimaiTeaser.jpg?v=0.2-ecf77b68" alt="Butterfly Shimai" />
+                    </div>
+                    <div class="name-container">
+                      <div class="name">
+                        Butterfly Shimai
+                      </div>
+                    </div>
+</a>
+                  </li>
+                  <li>
+                    <a href="/Game/Onet-World/a287bd43-371a-458b-b31e-a7c886e8301a">                    <div class="icon">
+                      <div class="clamp">
+                      </div>
+                      <img src="https://img.cdn.famobi.com/portal/html5games/images/tmp/OnetWorldTeaser.jpg?v=0.2-ecf77b68" alt="Onet World" />
+                    </div>
+                    <div class="name-container">
+                      <div class="name">
+                        Onet World
+                      </div>
+                    </div>
+</a>
+                  </li>
+                  <li>
+                    <a href="/Game/Jigsaw-Puzzle-Classic/b01e8abf-0bc2-4038-841d-cf079e1b98a1">                    <div class="icon">
+                      <div class="clamp">
+                      </div>
+                      <img src="https://img.cdn.famobi.com/portal/html5games/images/tmp/JigsawPuzzleClassicTeaser.jpg?v=0.2-ecf77b68" alt="Jigsaw Puzzle Classic" />
+                    </div>
+                    <div class="name-container">
+                      <div class="name">
+                        Jigsaw Puzzle Classic
+                      </div>
+                    </div>
+</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <script>
+            window.highlightNavFromLocalStorage = true;
+          </script>
+        </div>
+        <footer class="main">
+          <div id="div-gpt-ad-footer" style="text-align: center;">
+          </div>
+          <div class="footer-content">
+            <section class="tags">
+              <nav class="main">
+                <ul>
+                  <li>
+                    <a href="/">                    <i class="icon-home"></i>
+                    Home
+</a>
+                  </li>
+                  <li>
+                    <a href="/All-Games">                    <i class="icon-category-new"></i>
+                    New
+</a>
+                  </li>
+                  <li>
+                    <a href="/Best/702b9531-c136-437a-ab97-0b209d893b55">                    <i class="icon-category-best"></i>
+                    Best
+</a>
+                  </li>
+                  <li>
+                    <a href="/Match-3/a0732787-677c-4ff9-9ef5-73a21ff26f64">                    <i class="icon-category-match3"></i>
+                    Match 3
+</a>
+                  </li>
+                  <li>
+                    <a href="/Bubble-Shooter/09a8f220-955e-4114-a189-175faa5f1374">                    <i class="icon-category-bubble_shooter"></i>
+                    Bubble Shooter
+</a>
+                  </li>
+                  <li>
+                    <a href="/Puzzle/af2ebd26-0786-423b-90da-ffb229840819">                    <i class="icon-category-puzzle"></i>
+                    Puzzle
+</a>
+                  </li>
+                  <li>
+                    <a href="/Quiz/8e0b96cd-0fed-4354-a43d-ae4785a798fd">                    <i class="icon-category-quiz"></i>
+                    Quiz
+</a>
+                  </li>
+                  <li>
+                    <a href="/Cards/b32b5c79-362e-42a2-8a72-96f0ffe24bbb">                    <i class="icon-category-cards"></i>
+                    Cards
+</a>
+                  </li>
+                  <li>
+                    <a href="/Girls/018103c4-e4a9-4b0e-86c1-5cc6782053ca">                    <i class="icon-category-girls"></i>
+                    Girls
+</a>
+                  </li>
+                  <li>
+                    <a href="/Jump-Run/8a2ce06d-c47f-4eec-8c0b-8d52e48072bb">                    <i class="icon-category-jumpnrun"></i>
+                    Jump &amp; Run
+</a>
+                  </li>
+                  <li>
+                    <a href="/Arcade/ecfe76c8-13f9-49c1-b81a-084011512dba">                    <i class="icon-category-spaceshooter"></i>
+                    Arcade
+</a>
+                  </li>
+                  <li>
+                    <a href="/Racing/b53dc097-05cd-457f-a811-e0c6c47ca37a">                    <i class="icon-category-racing"></i>
+                    Racing
+</a>
+                  </li>
+                  <li>
+                    <a href="/Sport/92ab9ee5-0dc8-45b4-bf5a-517fc3de0caf">                    <i class="icon-category-sport"></i>
+                    Sport
+</a>
+                  </li>
+                  <li>
+                    <a href="/Multiplayer/4b2f5813-483b-4fa1-adf6-e6b542bc1b57">                    <i class="icon-category-multiplayer"></i>
+                    Multiplayer
+</a>
+                  </li>
+                  <li>
+                    <a href="/All-Games">                    <i class="icon-list"></i>
+                    All Games
+</a>
+                  </li>
+                </ul>
+                <ul class="tile-list">
+                  <li>
+                    <a class="tile-neutral teaser" href="/Static/About">                    <img src="https://img.cdn.famobi.com/portal/html5games/images/html5games_teaser_about.png?v=0.2-ecf77b68" alt="" />
+                    <header>
+                      About
+                    </header>
+                    <p>
+                      What is HTML5 games?
+                    </p>
+</a>
+                  </li>
+                  <li>
+                    <a class="tile-neutral teaser" href="https://famobi.com/publishers" target="_blank">                    <img src="https://img.cdn.famobi.com/portal/html5games/images/html5games_teaser_publishers.png?v=0.2-ecf77b68" alt="" />
+                    <header>
+                      Publishers
+                    </header>
+                    <p>
+                      Buy and license HTML5 games
+                    </p>
+</a>
+                  </li>
+                  <li>
+                    <a class="tile-neutral teaser" href="https://famobi.com/developers" target="_blank">                    <img src="https://img.cdn.famobi.com/portal/html5games/images/html5games_teaser_developers.png?v=0.2-ecf77b68" alt="" />
+                    <header>
+                      Developers
+                    </header>
+                    <p>
+                      Submit your HTML5 game
+                    </p>
+</a>
+                  </li>
+                </ul>
+              </nav>
+            </section>
+            <nav class="meta">
+              <ul>
+                <li>
+                  <a href="/Static/Imprint">                  Imprint
+</a>
+                  <a href="https://famobi.com/vendors/" target="_blank">                  Ad Vendors
+</a>
+                  <a href="https://famobi.com/privacy/" target="_blank">                  Privacy Policy
+</a>
+                  <a href="https://gamebow.com" target="_blank">                  gamebow.com
+</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="copyright">
+              ©2014-2026 HTML5games.com
+            </div>
+            <div class="powered-by-famobi">
+              powered by
+              <a href="https://famobi.com/" target="_blank">              <svg version="1.1" x="0px" y="0px" viewBox="-2 0 144 190">
+                <g>
+                  <rect x="72" y="0" width="44.6" height="44.6">
+                  </rect>
+                  <rect x="24" y="0" width="44.6" height="44.6">
+                  </rect>
+                  <rect x="24" y="47.9" width="44.6" height="44.6">
+                  </rect>
+                  <rect x="24" y="95.9" width="44.6" height="44.6">
+                  </rect>
+                  <polygon points="72,48 72,92.5 99.9,70.2">
+                  </polygon>
+                </g>
+                <g>
+                  <path d="M14.6,174.3H5.8v13.9H0.5v-30.6H18v4.6H5.8v7.4h8.8V174.3z">
+                  </path>
+                  <path d="M33.1,188.2l-0.4-2.9h-0.2c-0.8,1-2,1.9-3.4,2.5c-1.4,0.6-2.9,0.9-4.4,0.9c-1.9,0-3.5-0.6-4.6-1.7 c-1.1-1.1-1.7-2.6-1.7-4.5c0-1.3,0.3-2.4,0.8-3.4c0.5-1,1.3-1.9,2.3-2.6c1-0.7,2.2-1.2,3.7-1.6c1.4-0.4,3-0.6,4.8-0.6h2v-0.7 c0-1.2-0.4-2.1-1.2-2.6c-0.8-0.6-2.1-0.8-3.8-0.8c-2.3,0-4.3,0.5-6.1,1.5l-1-3.8c2.1-1.2,4.6-1.8,7.5-1.8c3.1,0,5.4,0.6,7,1.9 c0.7,0.6,1.4,1.3,1.8,2.3s0.7,2,0.7,3.3v14.5H33.1z M26.7,184.6c1,0,2-0.2,3-0.7c1-0.5,1.8-1.1,2.4-1.9v-4.2h-0.9 c-2.5,0-4.4,0.3-5.5,1c-1.2,0.6-1.7,1.7-1.7,3.1C23.9,183.7,24.8,184.6,26.7,184.6z">
+                  </path>
+                  <path d="M57.1,188.2v-14.1c0-2.5-1-3.8-3-3.8c-0.5,0-1,0.1-1.6,0.3c-0.6,0.2-1.1,0.5-1.7,0.8 c-0.5,0.4-1,0.8-1.5,1.3c-0.4,0.5-0.8,1.1-1,1.8v13.7h-5.1v-21.3h4l0.2,3.2h0.2c0.6-1.3,1.6-2.3,2.9-2.9c1.3-0.6,2.8-1,4.3-1 c1.5,0,2.8,0.3,4,0.9c1.2,0.6,2.1,1.6,2.7,2.9c0.6-1.3,1.6-2.2,2.9-2.9c1.3-0.6,2.8-1,4.3-1c1,0,1.9,0.1,2.8,0.4 c0.9,0.3,1.7,0.7,2.3,1.3c0.7,0.6,1.2,1.4,1.6,2.3c0.4,1,0.6,2.1,0.6,3.5v14.5h-5.1v-14.1c0-2.5-1-3.8-3-3.8c-0.5,0-1,0.1-1.6,0.3 c-0.6,0.2-1.1,0.5-1.7,0.8c-0.5,0.4-1,0.8-1.5,1.3c-0.4,0.5-0.8,1.1-1,1.8v13.7H57.1z">
+                  </path>
+                  <path d="M91.5,166.2c1.9,0,3.5,0.3,4.9,1c1.4,0.6,2.5,1.5,3.4,2.6c0.9,1.1,1.5,2.3,1.9,3.7c0.4,1.4,0.6,2.8,0.6,4.3 c0,1.5-0.2,2.9-0.6,4.3c-0.4,1.3-1.1,2.5-1.9,3.5c-0.9,1-2,1.8-3.3,2.4c-1.3,0.6-2.9,0.9-4.8,0.9c-1.9,0-3.5-0.3-4.9-0.9 c-1.4-0.6-2.5-1.4-3.4-2.5c-0.9-1-1.6-2.2-2-3.6c-0.4-1.4-0.6-2.8-0.6-4.3c0-1.5,0.2-3,0.6-4.3c0.4-1.4,1.1-2.6,2-3.6 c0.9-1,2-1.9,3.4-2.5C88.1,166.5,89.7,166.2,91.5,166.2z M91.6,184.9c0.9,0,1.7-0.2,2.3-0.6c0.7-0.4,1.2-0.9,1.6-1.6 c0.4-0.7,0.7-1.4,0.9-2.3c0.2-0.9,0.3-1.8,0.3-2.7c0-1-0.1-1.9-0.3-2.9c-0.2-0.9-0.5-1.7-1-2.4c-0.4-0.7-1-1.3-1.7-1.7 c-0.7-0.4-1.5-0.6-2.5-0.6c-0.9,0-1.7,0.2-2.3,0.6c-0.6,0.4-1.2,0.9-1.6,1.6c-0.4,0.6-0.7,1.4-0.9,2.3c-0.2,0.9-0.3,1.8-0.3,2.7 c0,1,0.1,1.9,0.3,2.9c0.2,0.9,0.5,1.7,1,2.4c0.4,0.7,1,1.3,1.7,1.7C89.9,184.7,90.7,184.9,91.6,184.9z">
+                  </path>
+                  <path d="M119.2,188.8c-1.7,0-3.1-0.3-4.1-1c-1.1-0.7-2.1-1.5-2.9-2.5h-0.2l-0.4,2.9h-4.1v-34.3h5.1V169 c0.7-0.9,1.7-1.6,2.8-2.1c1.2-0.5,2.5-0.7,4-0.7c1.6,0,3,0.3,4.2,0.9c1.2,0.6,2.2,1.4,3,2.5c0.8,1,1.4,2.2,1.8,3.5 c0.4,1.3,0.6,2.7,0.6,4.2c0,1.6-0.2,3.2-0.7,4.5c-0.5,1.4-1.1,2.6-2,3.6c-0.9,1-1.9,1.8-3.1,2.4C122,188.5,120.7,188.8,119.2,188.8 z M118.6,184.9c0.9,0,1.7-0.2,2.3-0.6c0.7-0.4,1.2-1,1.7-1.7c0.4-0.7,0.8-1.5,1-2.4c0.2-0.9,0.3-1.8,0.3-2.8c0-1-0.1-1.9-0.3-2.8 c-0.2-0.9-0.6-1.7-1.1-2.3c-0.5-0.7-1.1-1.2-1.8-1.6c-0.7-0.4-1.6-0.6-2.5-0.6c-0.9,0-1.8,0.2-2.8,0.6c-1,0.4-1.9,1.2-2.8,2.3v8.9 c0.3,0.5,0.8,0.9,1.3,1.2c0.5,0.4,1,0.7,1.6,0.9c0.5,0.2,1.1,0.4,1.6,0.6C117.5,184.8,118.1,184.9,118.6,184.9z">
+                  </path>
+                  <path d="M133.3,160c0-0.4,0.1-0.8,0.3-1.3c0.2-0.4,0.4-0.8,0.7-1.1c0.3-0.3,0.7-0.6,1-0.8c0.4-0.2,0.8-0.3,1.3-0.3 c0.4,0,0.9,0.1,1.3,0.3c0.4,0.2,0.8,0.4,1.1,0.8c0.3,0.3,0.6,0.7,0.8,1.1c0.2,0.4,0.3,0.8,0.3,1.3c0,0.5-0.1,0.9-0.3,1.3 c-0.2,0.4-0.4,0.7-0.8,1c-0.3,0.3-0.7,0.6-1.1,0.7c-0.4,0.2-0.8,0.3-1.3,0.3c-0.9,0-1.7-0.3-2.3-1 C133.7,161.7,133.3,160.9,133.3,160z M139.2,188.2h-5.1v-21.3h5.1V188.2z">
+                  </path>
+                </g>
+              </svg>
+</a>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
-    <!-- Pages load faster with scripts at the bottom -->
-    <!-- Construct 2 exported games require jQuery. -->
-    <script src="jquery-2.1.1.min.js">
+    <script src="/assets/0.2-ecf77b68/js/utils.js">
     </script>
-    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
-    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
-    <script src="c2runtime.js?v=1">
+    <script src="/assets/0.2-ecf77b68/js/app.js">
     </script>
-    <script>
-      // Start the Construct 2 project running on window load.
-		jQuery(document).ready(function ()
-		{			
-			// Create new runtime using the c2canvas
-			//cr_createRuntime(&#34;c2canvas&#34;);
-            $(&#34;#c2canvas&#34;).attr(&#34;width&#34;, window.top.innerWidth);
-            $(&#34;#c2canvas&#34;).attr(&#34;height&#34;, window.top.innerHeight);
-            setTimeout(function () {
-                $(&#34;.splash&#34;).css(&#34;opacity&#34;, &#34;0&#34;);
-                setTimeout(function () {
-                    $(&#34;.splash&#34;).remove();
-                    //   $(&#34;.logoCanvas&#34;).show();
-                    // Create new runtime using the c2canvas
-                    cr_createRuntime(&#34;c2canvas&#34;);
-                }, 350);
-            }, 1500);
-		});
-		
-		// Pause and resume on page becoming visible/invisible
-		function onVisibilityChanged() {
-			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
-				cr_setSuspended(true);
-			else
-				cr_setSuspended(false);
-		};
-		
-		document.addEventListener(&#34;visibilitychange&#34;, onVisibilityChanged, false);
-		document.addEventListener(&#34;mozvisibilitychange&#34;, onVisibilityChanged, false);
-		document.addEventListener(&#34;webkitvisibilitychange&#34;, onVisibilityChanged, false);
-		document.addEventListener(&#34;msvisibilitychange&#34;, onVisibilityChanged, false);
-		
-		function OnRegisterSWError(e)
-		{
-			console.warn(&#34;Failed to register service worker: &#34;, e);
-		};
-		
-		// Runtime calls this global method when ready to start caching (i.e. after startup).
-		// This registers the service worker which caches resources for offline support.
-		window.C2_RegisterSW = function C2_RegisterSW()
-		{
-			if (!navigator.serviceWorker)
-				return;		// no SW support, ignore call
-			
-			try {
-				navigator.serviceWorker.register(&#34;sw.js&#34;, { scope: &#34;./&#34; })
-				.then(function (reg)
-				{
-					console.log(&#34;Registered service worker on &#34; + reg.scope);
-				})
-				.catch(OnRegisterSWError);
-			}
-			catch (e)
-			{
-				OnRegisterSWError(e);
-			}
-		};
+    <script src="/assets/0.2-ecf77b68/js/bannerads.js">
     </script>
   </body>
 </html>
