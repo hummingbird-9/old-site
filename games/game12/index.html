@@ -1,0 +1,273 @@
+<html manifest="offline.appcache">
+  <head>
+  </head>
+  <body>
+    ﻿
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+      Snowball World
+    </title>
+    <!-- Standardised web app manifest -->
+    <link rel="manifest" href="../appmanifest.json" />
+    <!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
+    <meta name="HandheldFriendly" content="true" />
+    <!-- Chrome for Android web app tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
+    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+    <style type="text/css">
+      * {
+			padding: 0;
+			margin: 0;
+		}
+		html, body {
+			background: #000;
+			color: #fff;
+			overflow: hidden;
+			touch-action: none;
+			-ms-touch-action: none;
+		}
+		canvas {
+			touch-action-delay: none;
+			touch-action: none;
+			-ms-touch-action: none;
+		}
+        .splash {
+            color: #222;
+            -webkit-text-size-adjust: none;
+            background: url(https://az808818.vo.msecnd.net/baseimages/agingo_g_bg.jpg) center top no-repeat #76d4f8;
+            background-size: cover;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            overflow: hidden !important;
+            z-index: 2147483647;
+            -moz-transition: opacity 0.3s ease-in-out;
+            -ms-transition: opacity 0.3s ease-in-out;
+            -o-transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+
+
+        .logo {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            text-align: center;
+        }
+
+            .logo span {
+                width: 100%;
+                display: block;
+                margin-top: 20px;
+                color: #01773e;
+                font-size: 28px;
+                -webkit-animation: fadein 3s; /* Safari, Chrome and Opera &gt; 12.1 */
+                -moz-animation: fadein 3s; /* Firefox &lt; 16 */
+                -ms-animation: fadein 3s; /* Internet Explorer */
+                -o-animation: fadein 3s; /* Opera &lt; 12.1 */
+                animation: fadein 3s;
+            }
+
+            .logo img {
+                max-width: 500px;
+                width: 90%;
+                display: inline-block;
+            }
+
+            .logo img {
+                -webkit-animation: fadein 3s; /* Safari, Chrome and Opera &gt; 12.1 */
+                -moz-animation: fadein 3s; /* Firefox &lt; 16 */
+                -ms-animation: fadein 3s; /* Internet Explorer */
+                -o-animation: fadein 3s; /* Opera &lt; 12.1 */
+                animation: fadein 3s;
+            }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        /* Firefox &lt; 16 */
+        @-moz-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        /* Safari, Chrome and Opera &gt; 12.1 */
+        @-webkit-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        /* Internet Explorer */
+        @-ms-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        /* Opera &lt; 12.1 */
+        @-o-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        .logoCanvas {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            max-height: 5%;
+            display: none;
+        }
+    </style>
+    <div id="fb-root">
+    </div>
+    <script>
+      // Issue a warning if trying to preview an exported project on disk.
+	(function(){
+		// Check for running exported on file protocol
+		if (window.location.protocol.substr(0, 4) === &#34;file&#34;)
+		{
+			alert(&#34;Exported games won&#39;t work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)&#34;);
+		}
+	})();
+    </script>
+    <!-- The canvas must be inside a div called c2canvasdiv -->
+    <div id="c2canvasdiv">
+      <!-- The canvas the project will render to.  If you change its ID, don't forget to change the
+        ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
+      <canvas id="c2canvas" width="1280" height="720">
+        <!-- This text is displayed if the visitor's browser does not support HTML5.
+            You can change it, but it is a good idea to link to a description of a browser
+            and provide some links to download some popular HTML5-compatible browsers. -->
+        <h1>
+          Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.
+          <a href="http://www.whatbrowser.org">          What is a browser?
+</a>
+          <br />
+          <br />
+          <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">          Microsoft Internet Explorer
+</a>
+          <br />
+          <a href="http://www.mozilla.com/firefox/">          Mozilla Firefox
+</a>
+          <br />
+          <a href="http://www.google.com/chrome/">          Google Chrome
+</a>
+          <br />
+          <a href="http://www.apple.com/safari/download/">          Apple Safari
+</a>
+        </h1>
+      </canvas>
+      <img src="https://az808818.vo.msecnd.net/baseimages/agingo_logo_g_200x68.png" alt="agingo" class="logoCanvas" />
+    </div>
+    <div class="splash">
+      <div class="logo">
+        <img src="https://az808818.vo.msecnd.net/baseimages/agingo_logo_g.png" alt="agingo" style="" />
+        <span>        agingo.com
+</span>
+      </div>
+    </div>
+    <!-- Pages load faster with scripts at the bottom -->
+    <!-- Construct 2 exported games require jQuery. -->
+    <script src="jquery-2.1.1.min.js">
+    </script>
+    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+    <script src="c2runtime.js?v=1">
+    </script>
+    <script>
+      // Start the Construct 2 project running on window load.
+		jQuery(document).ready(function ()
+		{			
+			// Create new runtime using the c2canvas
+			//cr_createRuntime(&#34;c2canvas&#34;);
+            $(&#34;#c2canvas&#34;).attr(&#34;width&#34;, window.top.innerWidth);
+            $(&#34;#c2canvas&#34;).attr(&#34;height&#34;, window.top.innerHeight);
+            setTimeout(function () {
+                $(&#34;.splash&#34;).css(&#34;opacity&#34;, &#34;0&#34;);
+                setTimeout(function () {
+                    $(&#34;.splash&#34;).remove();
+                    //   $(&#34;.logoCanvas&#34;).show();
+                    // Create new runtime using the c2canvas
+                    cr_createRuntime(&#34;c2canvas&#34;);
+                }, 350);
+            }, 1500);
+		});
+		
+		// Pause and resume on page becoming visible/invisible
+		function onVisibilityChanged() {
+			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
+				cr_setSuspended(true);
+			else
+				cr_setSuspended(false);
+		};
+		
+		document.addEventListener(&#34;visibilitychange&#34;, onVisibilityChanged, false);
+		document.addEventListener(&#34;mozvisibilitychange&#34;, onVisibilityChanged, false);
+		document.addEventListener(&#34;webkitvisibilitychange&#34;, onVisibilityChanged, false);
+		document.addEventListener(&#34;msvisibilitychange&#34;, onVisibilityChanged, false);
+		
+		function OnRegisterSWError(e)
+		{
+			console.warn(&#34;Failed to register service worker: &#34;, e);
+		};
+		
+		// Runtime calls this global method when ready to start caching (i.e. after startup).
+		// This registers the service worker which caches resources for offline support.
+		window.C2_RegisterSW = function C2_RegisterSW()
+		{
+			if (!navigator.serviceWorker)
+				return;		// no SW support, ignore call
+			
+			try {
+				navigator.serviceWorker.register(&#34;sw.js&#34;, { scope: &#34;./&#34; })
+				.then(function (reg)
+				{
+					console.log(&#34;Registered service worker on &#34; + reg.scope);
+				})
+				.catch(OnRegisterSWError);
+			}
+			catch (e)
+			{
+				OnRegisterSWError(e);
+			}
+		};
+    </script>
+  </body>
+</html>
