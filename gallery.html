@@ -2,148 +2,207 @@
 <html>
   <head>
     <title>HTML Gallery</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="shortcut icon" href="icon/script.png">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="https://onecompiler.io">
   </head>
   <body class="gallery-body">
-    <h1 class="title">HTML Gallery</h1>
-    <p class="content"></p>
 
-    <div class="gallery-container">
- 
-      <!-- Search Bar -->
-    <input type="text" id="searchInput" onkeyup="searchGallery()" placeholder="Search" class="search-bar">
-
-    <div class="gallery-container" id="galleryContainer">
-
-      
-      <!-- Game Card 1 -->
-      <a href="games/game1/" class="game-card">
-        <img src="images/thumbnail1.png" alt="Game 1 Thumbnail" class="game-thumbnail">
-        <h3>Undertale</h3>
-        <p>Made from GML to HTML by BreadBB, original by Toby Fox.</p>
-      </a>
-
-      <!-- Game Card 2 -->
-      <a href="games/game2/" class="game-card">
-         <img src="images/thumbnail2.png" alt="Game 2 Thumbnail" class="game-thumbnail">
-        <h3>Deltarune</h3>
-        <p>Runs in web thanks to bog/aukak, original by Toby Fox</p>
-      </a>
-
-      <!-- Game Card 3 -->
-      <a href="games/game3/" class="game-card">
-         <img src="images/thumbnail3.png" alt="Game 3 Thumbnail" class="game-thumbnail">
-        <h3>Hollow Knight</h3>
-        <p>Made into an HTML by aukak/bog and fixes by me, original by Team Cherry.</p>
-      </a>
-
-      <!-- Game Card 4 -->
-      <a href="games/game4/" class="game-card">
-         <img src="images/thumbnail4.png" alt="Game 4 Thumbnail" class="game-thumbnail">
-        <h3>Hollow Knight Debug</h3>
-        <p>Same as other Hollow Knight, but now there's a console and FPS viewer (added by me [hummingbird_9])</p>
-      </a>
-
-      <a href="games/game5/" class="game-card">
-         <img src="images/thumbnail5.png" alt="Game 5 Thumbnail" class="game-thumbnail">
-        <h3>Eagletcraft 1.8.8</h3>
-        <p>Created by lax1dude and optimized by PlanetDoge. Original by Mojang Studios</p>
-      </a>        
-
-      <a href="games/game6/" class="game-card">
-         <img src="images/thumbnail6.png" alt="Game 6 Thumbnail" class="game-thumbnail">
-        <h3>Eagletcraft 1.12.2</h3>
-        <p>Created by PeytonPlayz595 and optimized by PlanetDoge. Original by Mojang Studios</p>
-      </a>               
-
-      <a href="games/game7/" class="game-card">
-         <img src="images/thumbnail7.png" alt="Game 7 Thumbnail" class="game-thumbnail">
-        <h3>Deltatraveler</h3>
-        <p>Ported to the web by Cake Logic, original by VyletBunni</p>
-      </a> 
-
-      <a href="games/game8/index.html" class="game-card">
-         <img src="images/thumbnail8.png" alt="Game 8 Thumbnail" class="game-thumbnail">
-        <h3>Fortnight</h3>
-        <p>Web Port by hummingbird-9, created by [idk]</p>
-      </a> 
-
-        <a href="games/game9/" class="game-card">
-         <img src="images/thumbnail9.png" alt="Game 9 Thumbnail" class="game-thumbnail">
-        <h3>Undertale Yellow</h3>
-        <p>Web Port by burnedpopcorn, created by Team Undertale Yellow</p>
-      </a> 
-
-        <a href="games/game10/" class="game-card">
-         <img src="images/thumbnail10.png" alt="Game 10 Thumbnail" class="game-thumbnail">
-        <h3>Elmo Fight</h3>
-        <p>Fight Elmo bc why not; all made by hummingbird-9</p>
-      </a> 
-
-        <a href="games/game11/" class="game-card">
-         <img src="images/thumbnail6.png" alt="Game 10 Thumbnail" class="game-thumbnail">
-        <h3>Eaglercraft 1.12.2 WASM-GC</h3>
-        <p>Webassembly garbage collection support (gets about 2x the fps but takes up more RAM)</p>
-      </a> 
-
-        <a href="games/game12" class="game-card">
-         <img src="images/placeholder2.png" alt="Game 10 Thumbnail" class="game-thumbnail">
-        <h3>Snowball world</h3>
-        <p>idk</p>
-      </a> 
-      
-       <div class="game-card disabled">
-        <img src="images/placeholder.png" alt="Coming Soon Thumbnail" class="game-thumbnail">
-        <h3>Coming Soon...</h3>
-        <p>Hollow Knight (fixed Dreamers) is in development (worked on by hummingbird_9 and probably no one else)</p>
-      </div>
-        
-      
-       <div class="game-card disabled">
-        <img src="images/placeholder1.png" alt="Coming Soon Thumbnail" class="game-thumbnail">
-        <h3>Coming Soon...</h3>
-        <p>Silksong as an HTML is in development (worked on by hummingbird_9, CraftingDead, and whatshisname)</p>
-      </div>
-
-
-       <div class="game-card disabled">
-        <img src="images/placeholder2.png" alt="Coming Soon Thumbnail" class="game-thumbnail">
-        <h3>Coming Soon...</h3>
-        <p>Eaglercraft 1.18.2 is in development (worked on by hummingbird_9 and possibly other unknown people).</p>
-      </div>
-
+    <div class="top-button-container">
+      <a href="index.html" class="open-page-btn back-btn">← Back Home</a>
+      <a href="https://github.com" target="_blank" class="open-page-btn" style="border-color: rgba(255, 95, 86, 0.4);">Report An Issue</a>
     </div>
 
-  
-    <a href="index.html" class="open-page-btn back-btn">Go Back To Home</a>
+    <div class="utility-controls-container">
+      <button class="utility-btn" onclick="toggleHardwareProfilerOverlay()">Hardware HUD</button>
+      <button id="lightweightToggleBtn" class="utility-btn" onclick="toggleLightweightEngine()">Extreme Lightweight</button>
+      <button id="themeToggleBtn" class="utility-btn" onclick="toggleTheme()">Theme Mode</button>
+    </div>
 
-      <!-- JavaScript for the search functionality bc I lowkey wanna try not making a script.js -->
+    <div class="logo-container gallery-logo-container">
+      <img src="https://onecompiler.io" alt="Humming[bird]Tech Logo" class="brand-logo">
+    </div>
+
+    <p class="content"></p>
+
+    <div class="search-container">
+      <input type="text" id="gallerySearch" placeholder="Search applications..." class="search-bar">
+      <button class="utility-btn" onclick="clearGalleryFilters()" style="padding: 8px 24px;">Clear</button>
+    </div>
+
+    <div class="gallery-container" id="galleryContainer">
+      <p id="loadingText">Processing source indexes...</p>
+    </div>
+
+    <div id="appViewportOverlay" class="app-viewport-overlay">
+      <div class="viewport-navbar">
+        <h3 id="viewportTitle" class="viewport-title">Application Sandbox</h3>
+        <div class="viewport-controls">
+          <button id="viewNewTabBtn" class="utility-btn">New Tab</button>
+          <button id="viewAboutBlankBtn" class="utility-btn">about:blank</button>
+          <button class="utility-btn" style="background:#ff5f56; color:white;" onclick="closeApplicationViewport()">Close</button>
+        </div>
+      </div>
+      <div class="iframe-sandbox-container">
+        <iframe id="appSandboxIframe" class="app-iframe" src=""></iframe>
+      </div>
+    </div>
+
+    <script src="global-utils.js"></script>
     <script>
-        function searchGallery() {
-            // Get user input and convert to lowercase for case-insensitive search
-            let input = document.getElementById('searchInput');
-            let filter = input.value.toLowerCase();
-            
-            // Get all gallery cards
-            let gallery = document.getElementById('galleryContainer');
-            let cards = gallery.getElementsByClassName('game-card');
+      const container = document.getElementById('galleryContainer');
+      const searchBar = document.getElementById('gallerySearch');
+      let projectsData = [];
 
-            // Loop through all cards, and hide those that don't match the search query
-            for (let i = 0; i < cards.length; i++) {
-                // Get the title of the card
-                let title = cards[i].querySelector('h3');
-                let textValue = title.textContent || title.innerText;
-                
-                if (textValue.toLowerCase().indexOf(filter) > -1) {
-                    cards[i].style.display = ""; // Show card
-                } else {
-                    cards[i].style.display = "none"; // Hide card
-                }
+      // High-Performance Fail-Safe URL Parser Matrix
+      async function resolveRawLinkRegistryMap() {
+        try {
+          const response = await fetch('/html/repos.json');
+          if (!response.ok) throw new Error('Data map configuration file missing');
+          const data = await response.json();
+          
+          projectsData = data.repo_links.map(link => {
+            let cleanLink = link.trim();
+            if (!cleanLink.startsWith('http://') && !cleanLink.startsWith('https://')) {
+              cleanLink = 'https://' + cleanLink;
             }
+
+            let username = "hummingbird-9";
+            let repoName = "unresolved-repo";
+            let branch = "main";
+
+            try {
+              const urlObj = new URL(cleanLink);
+              
+              if (urlObj.hostname.includes("github.com")) {
+                const paths = urlObj.pathname.split('/').filter(p => p);
+                if (paths.length >= 1) username = paths[0];
+                if (paths.length >= 2) repoName = paths[1];
+              } 
+              else if (urlObj.hostname.includes("jsdelivr.net")) {
+                const paths = urlObj.pathname.split('/').filter(p => p);
+                // jsdelivr paths look like: /gh/username/repo@branch
+                if (paths.length >= 3 && paths[0] === "gh") {
+                  username = paths[1];
+                  const repoBranchSplit = paths[2].split('@');
+                  repoName = repoBranchSplit[0];
+                  if (repoBranchSplit.length > 1) {
+                    branch = repoBranchSplit[1];
+                  }
+                }
+              }
+            } catch (urlError) {
+              console.error("Invalid URL layout format passed:", cleanLink);
+            }
+
+            const parsedTitle = repoName.replace(/-/g, ' ');
+            const computedCover = `https://jsdelivr.net{username}/${repoName}@${branch}/cover.png`;
+            const appUrl = `https://${username}.github.io/${repoName}/`;
+
+            return {
+              name: parsedTitle,
+              cover: computedCover,
+              url: appUrl,
+              description: "Automated isolated application target interface deployment framework."
+            };
+          });
+          
+          renderGalleryExecutionBlocks(projectsData);
+        } catch (error) {
+          console.error(error);
+          container.innerHTML = `<p style="color: #ff6b6b;">Error processing repository parameters map registry.</p>`;
         }
+      }
+
+      function renderGalleryExecutionBlocks(projects) {
+        const fragment = document.createDocumentFragment();
+        container.innerHTML = "";
+
+        const isExtremeLightweight = localStorage.getItem("extreme_lightweight") === "true";
+
+        if (projects.length === 0) {
+          container.innerHTML = `<p>No items match current filter criteria.</p>`;
+          return;
+        }
+
+        let imageObserver = null;
+        if (isExtremeLightweight) {
+          imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.getAttribute('data-src');
+                observer.unobserve(img);
+              }
+            });
+          });
+        }
+
+        projects.forEach(project => {
+          const card = document.createElement('div');
+          card.className = 'game-card';
+          card.onclick = () => launchApplicationViewport(project.url, project.name);
+
+          if (isExtremeLightweight) {
+            card.innerHTML = `
+              <img class="game-thumbnail" data-src="${project.cover}" src="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 220 130'%3E%3Crect width='100%25' height='100%25' fill='%23222'/%3E%3C/svg%3E" alt="${project.name}">
+              <h3>${project.name}</h3>
+              <p>${project.description}</p>
+            `;
+            if (imageObserver) imageObserver.observe(card.querySelector('.game-thumbnail'));
+          } else {
+            card.innerHTML = `
+              <img class="game-thumbnail" src="${project.cover}" alt="${project.name}" onerror="this.onerror=null; this.src='https://onecompiler.io';">
+              <h3>${project.name}</h3>
+              <p>${project.description}</p>
+            `;
+          }
+          fragment.appendChild(card);
+        });
+        container.appendChild(fragment);
+      }
+
+      function clearGalleryFilters() {
+        searchBar.value = "";
+        renderGalleryExecutionBlocks(projectsData);
+      }
+
+      function launchApplicationViewport(url, title) {
+        document.getElementById('viewportTitle').innerText = title;
+        const iframe = document.getElementById('appSandboxIframe');
+        iframe.src = url;
+        document.getElementById('appViewportOverlay').style.display = 'flex';
+
+        document.getElementById('viewNewTabBtn').onclick = () => window.open(url, '_blank');
+        document.getElementById('viewAboutBlankBtn').onclick = () => {
+          const blankWindow = window.open('about:blank', '_blank');
+          if (blankWindow) {
+            blankWindow.document.write(`
+              <html style="margin:0;padding:0;overflow:hidden;">
+                <head><title>${title}</title></head>
+                <body style="margin:0;padding:0;overflow:hidden;background:#000;">
+                  <iframe src="${url}" style="width:100vw;height:100vh;border:none;margin:0;padding:0;"></iframe>
+                </body>
+              </html>
+            `);
+            blankWindow.document.close();
+          }
+        };
+      }
+
+      function closeApplicationViewport() {
+        document.getElementById('appViewportOverlay').style.display = 'none';
+        document.getElementById('appSandboxIframe').src = "";
+      }
+
+      searchBar.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filtered = projectsData.filter(project => {
+          return project.name.toLowerCase().includes(searchTerm);
+        });
+        renderGalleryExecutionBlocks(filtered);
+      });
+
+      resolveRawLinkRegistryMap();
     </script>
-  </body>
-</html>
   </body>
 </html>
